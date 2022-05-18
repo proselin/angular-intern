@@ -11,6 +11,7 @@ import {ButtonModule} from "primeng/button";
 import {TableModule} from "primeng/table";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./services/auth.interceptor";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     ButtonModule,
     TableModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

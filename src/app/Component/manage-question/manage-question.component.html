@@ -25,7 +25,7 @@
           Mức độ câu hỏi:
         </div>
         <div class="input">
-          <p-dropdown [options]="TypeQuestionModel" optionLabel="name" placeholder="--Chọn mức độ câu hỏi--">
+          <p-dropdown [options]="levelQuestion"  [(ngModel)]="selectedLevelQuestion" optionLabel="qlName" placeholder="--Chọn mức độ câu hỏi--">
 
           </p-dropdown>
         </div>
@@ -37,7 +37,8 @@
           Dạng câu hỏi:
         </div>
         <div class="input">
-          <p-dropdown [options]="formQuestion" optionLabel="name"  placeholder="--Chọn dạng câu hỏi--" >
+          <p-dropdown [options]="typeQuestion"  [(ngModel)]="selectedTypeQuestion"
+                      (ngModelChange)="checkVal($event)" optionValue="qtCode" optionLabel="qtName"  placeholder="--Chọn dạng câu hỏi--" >
 
           </p-dropdown>
         </div>
@@ -69,7 +70,7 @@
 
     <hr/>
 
-   <p-table>
+   <p-table [value]="products1">
      <ng-template pTemplate="header">
        <tr>
          <th style="width: 3rem"><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
@@ -81,16 +82,16 @@
        </tr>
      </ng-template>
 
-     <ng-template pTemplate="body">
+     <ng-template pTemplate="body" let-product>
        <tr>
          <td>
            <p-tableCheckbox></p-tableCheckbox>
          </td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
+         <td>{{ 1}}</td>
+         <td>{{product.qeCode}}</td>
+         <td>{{product.content}}</td>
+         <td>{{product.status}}</td>
+         <td>{{product.owner}}</td>
 
        </tr>
      </ng-template>

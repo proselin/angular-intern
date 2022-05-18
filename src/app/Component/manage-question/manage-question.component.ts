@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ExamCategoryApiService} from "../../services/api/type-question";
-import {TypeQuestionModel} from "../../models/response/type-question.model";
+import {ExamCategoryApiService} from "../../services/api/level-question";
+import {questionLevelModel} from "../../models/response/level-question.model";
+import {questionTypeModel} from "../../services/api/type-question";
+import {GetSubOfCategoryModel} from "../../models/response/get-sub-of-category.model";
+
 
 @Component({
   selector: 'app-manage-question',
@@ -9,46 +12,80 @@ import {TypeQuestionModel} from "../../models/response/type-question.model";
   styleUrls: ['./manage-question.component.css']
 })
 export class ManageQuestionComponent implements OnInit {
-  typeQuestion: TypeQuestionModel[] = [];
-
+  levelQuestion: questionLevelModel[]= [];
+  typeQuestion: questionTypeModel[] = [];
+  getSubCategory: GetSubOfCategoryModel[] = [];
+  // products1: Product[];
 
   formQuestion = [
-    {name: "Một lựa chọn"},
-    {name: "Nhiều lựa chọn"},
-    {name: "Fill in blank"},
-    {name: "Matching"},
-    {name: "Tự luận"}
+    // {name: "Một lựa chọn", value:1},
+    // {name: "Nhiều lựa chọn" , value:2},
+    // {name: "Fill in blank" , value:3},
+    // {name: "Matching" , value: 4},
+    // {name: "Tự luận", value: 5}
   ]
 
   status = [
     {name: "Hoạt động", value: 1},
     {name: "Không hoạt động", value: 0}
   ]
-  TypeQuestionModel: any;
+
+  selectedTypeQuestion: any;
+  selectedLevelQuestion: any;
+  products1: any;
+
 
 
 
   constructor(
     private http: HttpClient,
-    private data: ExamCategoryApiService,
+    private examCategoryApiService: ExamCategoryApiService,
   ) {
     this.getData()
   }
 
   ngOnInit(): void {
-    console.log('ok1')
+    this.getType()
+    this.getSubOfCategory()
   }
 
 
   getData() {
-    console.log('oke3')
-    this.data.getTypeQuestion().subscribe(
+    this.examCategoryApiService.getQuestionLevel().subscribe(
       (response) => {
-        this.typeQuestion = response
+        this.levelQuestion = response
         console.log(response)
       },
       () => {},
       () => {}
     )
+  }
+
+  getType(){
+    this.examCategoryApiService.getQuestionType().subscribe(
+      (res) => {
+        this.typeQuestion = res
+        console.log(res)
+      },
+      () => {},
+      () => {}
+    )
+  }
+
+  getSubOfCategory() {
+    this.examCategoryApiService.getSearchInfo().subscribe(
+      res => {
+        console.log(res)
+        this.products1 = res.data.results
+
+      },
+      () => {},
+      () => {}
+    )
+  }
+
+  checkVal($event: any) {
+    console.log($event)
+    console.log(this.selectedTypeQuestion)
   }
 }

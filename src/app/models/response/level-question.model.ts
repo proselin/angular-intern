@@ -1,5 +1,7 @@
-export interface TypeQuestionModel {
+export interface questionLevelModel {
   qlID : number
   qlName: string
   qlCode: string
 }
+
+
