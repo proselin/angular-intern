@@ -1,0 +1,87 @@
+
+<div>
+  <div class="header"></div>
+  <div class="grid ">
+    <div class="col-2"></div>
+    <div class="col-10 content-right">
+      <h2>Thông tin câu hỏi</h2>
+      <div class=" grid">
+        <div class="container col-4">
+          <div class="info-form">
+            Mã câu hỏi:
+            <div> *</div>
+          </div>
+          <div class="input">
+            <input pInputText
+                   placeholder="Nhập mã câu hỏi"
+
+            />
+          </div>
+        </div>
+
+        <div class="container col-4">
+          <div class="info-form">
+            Mã câu hỏi:
+            <div>*</div>
+          </div>
+          <div class="input">
+            <p-dropdown [options]="levelQuestion"  [(ngModel)]="selectedLevelQuestion" optionLabel="qlName" placeholder="--Chọn mức độ câu hỏi--" >
+
+            </p-dropdown>
+          </div>
+        </div>
+
+        <div class="container col-4" >
+          <div class="info-form">
+            Dạng câu hỏi:
+            <div>*</div>
+          </div>
+          <div class="input">
+            <p-dropdown [options]="typeQuestion"  [(ngModel)]="selectedTypeQuestion"
+                        (ngModelChange)="checkVal($event)" optionValue="qtCode" optionLabel="qtName"  placeholder="--Chọn dạng câu hỏi--" >
+
+            </p-dropdown>
+          </div>
+        </div>
+
+        <div class="container col-4">
+          <div>
+            Ngày hết hạn:
+          </div>
+          <div>
+            <div >
+
+              <p-calendar  [showTime]="true" [showSeconds]="true" inputId="time"></p-calendar>
+            </div>
+          </div>
+        </div>
+
+        <div  class="container col-4s">
+          <div class="info-form">
+            Trạng thái:
+            <div> *</div>
+          </div>
+          <div class="input">
+            <p-dropdown [options]="status" optionLabel="name" placeholder="Hoạt động" >
+
+            </p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-form" >
+        Nội dung câu hỏi:
+        <div> *</div>
+      </div>
+
+      <p-editor [(ngModel)]="text1" [style]="{'height':'320px'}"></p-editor>
+      <p>Value: {{text1||'empty'}}</p>
+
+      <h5>Custom Toolbar</h5>
+      <p-editor [style]="{'height':'320px'}"></p-editor>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,6 +1,25 @@
 
 <div class="grid container">
-  <div class="col-4"></div>
+  <div class="col-4 content-left">
+    <div class="input-left ">
+      <input pInputText
+             placeholder="Nhập mã, têm danh mục"
+      />
+    </div>
+
+    <div class="input-left">
+      <p-dropdown [options]="allStatus"   optionLabel="name" placeholder="Tất cả">
+
+      </p-dropdown>
+    </div>
+
+    <div>
+
+
+
+    </div>
+
+  </div>
 
   <div class="col-8 content-right">
     <div>
@@ -16,6 +35,7 @@
         <div class="input ">
           <input pInputText
             placeholder="Nhập mã câu hỏi, nội dung câu hỏi"
+                 [(ngModel)]="selectQrCode"
           />
         </div>
       </div>
@@ -25,7 +45,7 @@
           Mức độ câu hỏi:
         </div>
         <div class="input">
-          <p-dropdown [options]="levelQuestion"  [(ngModel)]="selectedLevelQuestion" optionLabel="qlName" placeholder="--Chọn mức độ câu hỏi--">
+          <p-dropdown [options]="levelQuestion"  [(ngModel)]="selectedLevelQuestion" optionLabel="qlName" placeholder="--Chọn mức độ câu hỏi--" >
 
           </p-dropdown>
         </div>
@@ -60,10 +80,11 @@
 
     <div class="btn-container" >
       <div class="btn-left">
-        <button pButton  type="button" label="Tìm kiếm" class="btn-search p-button-danger"></button>
-        <button pButton  type="button" label="Làm mới" class="p-button-outlined p-button-danger"></button>
+        <button pButton  type="button" label="Tìm kiếm" class="btn-search p-button-danger" (click)="onSearch()"></button>
+        <button pButton  type="button" label="Làm mới" class="p-button-outlined p-button-danger" (click)="resetData()"></button>
       </div>
       <div class="btn-right">
+        <button pButton  type="button" label="Thêm mới" class="p-button-outlined " (click)="addpage()"></button>
         <button pButton  type="button" disabled="true" label="Chọn thao tác" class="p-button-danger"></button>
       </div>
     </div>
@@ -82,16 +103,18 @@
        </tr>
      </ng-template>
 
-     <ng-template pTemplate="body" let-product>
+     <ng-template pTemplate="body" let-product  let-rowIndex="rowIndex">
        <tr>
          <td>
            <p-tableCheckbox></p-tableCheckbox>
          </td>
-         <td>{{ 1}}</td>
+         <td>{{ rowIndex + 1 }}</td>
          <td>{{product.qeCode}}</td>
          <td>{{product.content}}</td>
          <td>{{product.status}}</td>
-         <td>{{product.owner}}</td>
+         <td>
+           <p-splitButton [model]="operation"  (click)="checkVal(product.qeCode)"></p-splitButton>
+         </td>
 
        </tr>
      </ng-template>

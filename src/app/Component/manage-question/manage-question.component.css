@@ -2,7 +2,7 @@
   padding: 0px 30px
 }
 
-.content-right {
+.content-right{
 
   padding : 25px 25px 20px 25px;
 }
@@ -14,7 +14,7 @@
   font-size: 18px;
   margin-bottom: 10px;
 }
-.content-right {
+.content-right, .content-left  {
   border: 1px solid #E9E9E9;
   margin-top: 20px;
   border-radius: 10px;
@@ -29,4 +29,13 @@
 hr {
   color: #f8f9fa;
 }
+.input-left input {
+  width: 100%;
+
+}
+/**/
+.input-left {
+  padding : 25px 25px 0px 25px;
+}
+
 

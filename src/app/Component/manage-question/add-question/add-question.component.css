@@ -1,0 +1,18 @@
+
+
+.info-form{
+  display: flex;
+}
+
+.content-right{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.container .input input {
+  width: 100%
+}
+.header {
+
+}
