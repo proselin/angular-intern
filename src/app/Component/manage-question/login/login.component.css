@@ -1,0 +1,58 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+
+}
+
+.container-login {
+  /*width: 100%;*/
+  height: 100vh;
+  background-image: url("https://cdn2.tieudungplus.vn/media/uploaded/49/2018/09/24/chum-anh-12-thu-vien-dep-nhat-the-gioi-12-tieudungplus-1537777172.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.info-login{
+  margin-top: 10px;
+}
+
+.login-form {
+  position: absolute;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #000;
+  color: #fff;
+
+}
+
+form {
+  padding: 25px;
+}
+
+.input input {
+  width: 100%;
+  background: transparent;
+}
+input {
+  padding: 7px;
+  border-radius: 5px;
+}
+.password-p {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  padding: 5px 10px 5px 10px;
+}

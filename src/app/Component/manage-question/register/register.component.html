@@ -1,0 +1,91 @@
+
+
+<div class="register-container">
+  <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()" >
+    <div class="container">
+      <h3>Register</h3>
+      <div class="info-user form-group">
+        <div class="label">
+          Name
+        </div>
+        <div class="input">
+          <input class="form-control" pInputText  formControlName="firstName" [ngClass]="{'is-invalid': submitted && registerForm.controls['firstName'].errors}" type="text" placeholder="Name" />
+        </div>
+        <div *ngIf="submitted && registerForm.controls['firstName'].invalid">
+          <div  *ngIf=" registerForm.controls['firstName'].hasError('required')">
+              Name is required
+          </div>
+        </div>
+<!--        <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="form-control">first name is required</div>-->
+<!--        <input type="text" class="form-control" formControlName="name">-->
+<!--        <span class="text-danger"-->
+<!--              *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required">-->
+<!--                                Name is required-->
+<!--        </span>-->
+
+      </div>
+
+      <div class="info-user form-group">
+        <div class="label">
+          Email
+        </div>
+        <div class="input">
+          <input type="text" pInputText class="form-control" formControlName="email" [ngClass]="{'is-invalid': submitted && registerForm.controls['email'].errors}" placeholder="Email" />
+        </div>
+        <div *ngIf="submitted && registerForm.controls['email'].invalid">
+          <div  *ngIf=" registerForm.controls['email'].hasError('required')">
+            email is required
+          </div>
+        </div>
+      </div>
+
+      <div class="info-user form-group">
+        <div class="label">
+          Username
+        </div>
+        <div class="input">
+          <input class="form-control" formControlName="userName" pInputText [ngClass]="{'is-invalid': submitted && registerForm.controls['userName'].errors}" type="text" placeholder="Username" />
+        </div>
+        <div *ngIf="submitted && registerForm.controls['userName'].invalid">
+          <div  *ngIf=" registerForm.controls['userName'].hasError('required')">
+            username is required
+          </div>
+        </div>
+      </div>
+
+      <div class="info-user form-group">
+        <div class="label">
+          Password
+        </div>
+        <div class="input">
+          <input class="form-control" formControlName="passWord" pInputText [ngClass]="{'is-invalid': submitted && registerForm.controls['passWord'].errors}" type="password" placeholder="password" />
+        </div>
+        <div *ngIf="submitted && registerForm.controls['passWord'].invalid">
+          <div  *ngIf=" registerForm.controls['passWord'].hasError('required')">
+            password is required
+          </div>
+        </div>
+      </div>
+
+      <div class="info-user form-group">
+        <div class="label">
+          Confirm Passwords
+        </div>
+        <div class="input">
+          <input class="form-control" formControlName="confirmPassword" pInputText [ngClass]="{'is-invalid': submitted && registerForm.controls['confirmPassword'].errors}" type="password" placeholder="Confirm Password" />
+        </div>
+        <div *ngIf="submitted && registerForm.controls['confirmPassword'].invalid">
+          <div  *ngIf=" registerForm.controls['confirmPassword'].hasError('required')">
+            confirm password is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button pButton type="submit" label="Click"  ></button>
+<!--      <button type="button" class="btn btn-danger">Danger</button>-->
+    </div>
+
+  </form>
+
+</div>

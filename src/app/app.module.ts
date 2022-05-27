@@ -11,7 +11,7 @@ import {ButtonModule} from "primeng/button";
 import {TableModule} from "primeng/table";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./services/auth.interceptor";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SplitButtonModule} from "primeng/splitbutton";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {AddQuestionComponent} from "./Component/manage-question/add-question/add-question.component";
@@ -20,6 +20,9 @@ import { EditQuestionComponent } from './Component/manage-question/edit-question
 import {CalendarModule} from "primeng/calendar";
 import {EditorModule} from "primeng/editor";
 import {AutoCompleteModule} from "primeng/autocomplete";
+import { RegisterComponent } from './Component/manage-question/register/register.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { LoginComponent } from './Component/manage-question/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import {AutoCompleteModule} from "primeng/autocomplete";
     ManageQuestionComponent,
     AddQuestionComponent,
     EditQuestionComponent,
+    RegisterComponent,
+    ReactiveFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,7 @@ import {AutoCompleteModule} from "primeng/autocomplete";
     CalendarModule,
     EditorModule,
     AutoCompleteModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

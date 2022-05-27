@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto:wght@300;400&display=swap');
+
+body {
+  font-family: Roboto;
+}
+
+.register-container{
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 25px;
+  width: 50%;
+  margin-top: 10%;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+}
+h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.container .label{
+  margin-bottom: 7px;
+}
+.info-user {
+  margin-bottom: 13px;
+
+}
+.container .input input {
+  width: 100%
+}
+input {
+  padding: 7px;
+  border-radius: 5px;
+}
+
+button{
+  margin: 15px
+}
+
